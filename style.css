@@ -1,3 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  background: rgb(211, 126, 76);
+  padding: 10px 20px;
+  border-radius: 30px;
+}
+
+h2 {
+  font-size: 60px;
+  color: black;
+  border-radius: 20px;
+  margin: 30px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+a {
+  padding: 15px 10px;
+  color: rgb(128, 0, 66);
+  background: #fff;
+  border: none;
+  font-size: 1.5em;
+  border-radius: 15px;
+  position: relative;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
-  background-color: blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(170, 71, 71);
+  height: 100vh;
+}
+
+.memory-container {
+  width: 400px;
+  height: 400px;
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+}
+.cards,
+.card,
+.view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.cards {
+  height: 100%;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.cards .card {
+  cursor: pointer;
+  height: calc(100% / 4 - 10px);
+  width: calc(100% / 4 - 10px);
+  position: relative;
+  perspective: 800px;
+  transform-style: preserve-3d;
+}
+
+.card .front-view span {
+  font-size: 45px;
+  color: blueviolet;
+}
+
+.cards .card .view {
+  height: 100%;
+  width: 100%;
+  background: rgb(222, 216, 211);
+  border-radius: 7px;
+  box-shadow: 0 3px 10px rgb(124, 84, 105);
+  pointer-events: pointer;
+  user-select: none;
+  position: absolute;
+  transition: transform 0.25s linear;
+  backface-visibility: hidden;
+}
+
+.card .back-view {
+  transform: rotateY(-180deg);
+}
+
+.card .back-view img {
+  max-width: 45px;
+}
+
+.card.flip .front-view {
+  transform: rotateY(180deg);
+}
+
+.card.flip .back-view {
+  transform: rotateY(0);
 }
